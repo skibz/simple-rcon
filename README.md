@@ -43,22 +43,22 @@ client.on('authenticated', function() {
 ## API
 
 * Constructor
-  - Accepts one positional argument and returns an instance of `simple-rcon`.
+  - Accepts one positional argument of type `Object` and returns an instance of `simple-rcon`.
 
     Fields | Type | Required | Default Value | Description
     ------ | ---- | -------- | ------------- | -----------
-    `host` | String | Yes | `'127.0.0.1'` | The remote host address
-    `port` | Number | Yes | `27015` | The remote host dedicated server's port
-    `password` | String | Yes | `null` | The remote host dedicated server's RCON password
-    `timeout` | Number | No | `5000` | The client socket timeout
+    `host` | `String` | Yes | `'127.0.0.1'` | The remote host address
+    `port` | `Number` | Yes | `27015` | The remote host dedicated server's port
+    `password` | `String` | Yes | `null` | The remote host dedicated server's RCON password
+    `timeout` | `Number` | No | `5000` | The client socket timeout
 
 * `exec`
   - Accepts two positional arguments and sends the command to the remote host dedicated server if authenticated, otherwise buffers the command until authenticated.
 
     Argument | Type | Description
     -------- | ---- | -----------
-    `command` | String | Command to execute on the remote host dedicated server
-    `callback` | Function<String> | Function to invoke with a result received from the remote host dedicated server
+    `command` | `String` | Command to execute on the remote host dedicated server
+    `callback` | `Function<String>` | Function to invoke with a result received from the remote host dedicated server
 
 * `close`
   - Accepts no positional arguments and terminates the connection to the remote host dedicated server.
@@ -72,7 +72,7 @@ Name | Parameters | Description
 `authenticated` | 0 | After client has authenticated with server
 `disconnecting` | 0 | Before client begins disconnecting from server
 `disconnected` | 0 | After client has disconnected from server
-`error` | 1 | After client connection was interrupted by an error
+`error` | 1 (`Error` or `String`) | After client connection was interrupted by an error
 
 ##### Contributors
 
@@ -85,4 +85,4 @@ Name | Parameters | Description
 
 ##### License
 
-[MIT](/tree/master/LICENSE.md)
+[MIT](tree/master/LICENSE.md)
