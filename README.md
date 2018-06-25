@@ -85,4 +85,4 @@ Name | Parameters | Description
 
 ##### License
 
-[MIT](tree/master/LICENSE.md)
+[MIT](LICENSE.md)
