@@ -47,10 +47,10 @@ client.on('authenticated', function() {
 
     Fields | Type | Required | Default Value | Description
     ------ | ---- | -------- | ------------- | -----------
-    `host` | String | [x] | `'127.0.0.1'` | The remote host address
-    `port` | Number | [x] | `27015` | The remote host dedicated server's port
-    `password` | String | [x] | `null` | The remote host dedicated server's RCON password
-    `timeout` | Number | [ ] | `5000` | The client socket timeout
+    `host` | String | Yes | `'127.0.0.1'` | The remote host address
+    `port` | Number | Yes | `27015` | The remote host dedicated server's port
+    `password` | String | Yes | `null` | The remote host dedicated server's RCON password
+    `timeout` | Number | No | `5000` | The client socket timeout
 
 * `exec`
   - Accepts two positional arguments and sends the command to the remote host dedicated server if authenticated, otherwise buffers the command until authenticated.
@@ -67,12 +67,12 @@ client.on('authenticated', function() {
 
 Name | Parameters | Description
 ---- | ---------- | -----------
-`connecting` | none | Before client begins connecting to server
-`connected` | none | After client has connected to server
-`authenticated` | none | After client has authenticated with server
-`disconnecting` | none | Before client begins disconnecting from server
-`disconnected` | none | After client has disconnected from server
-`error` | 1 (String or Error) | After client connection was interrupted by an error
+`connecting` | 0 | Before client begins connecting to server
+`connected` | 0 | After client has connected to server
+`authenticated` | 0 | After client has authenticated with server
+`disconnecting` | 0 | Before client begins disconnecting from server
+`disconnected` | 0 | After client has disconnected from server
+`error` | 1 | After client connection was interrupted by an error
 
 ##### Contributors
 
