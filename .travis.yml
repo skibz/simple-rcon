@@ -1,7 +1,15 @@
 
 language: node_js
 node_js:
-  - '0.12'
-  - '0.11'
-  - '0.10'
-after_script: npm run coverage
+  - 10
+  - 8
+  - 6
+env:
+  # - FOO=BAR
+before_script:
+  # - echo foo
+script:
+  # - echo bar
+  - npm run coverage
+after_script:
+  # - echo baz

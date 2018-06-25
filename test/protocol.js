@@ -1,43 +1,52 @@
 
-var expect = require('chai').expect;
-var protocol = require('../lib/protocol');
+'use strict'
 
-describe('Protocol', function() {
+var {expect} = require('chai')
+var {
+  SERVERDATA_AUTH,
+  SERVERDATA_AUTH_RESPONSE,
+  SERVERDATA_EXECCOMMAND,
+  SERVERDATA_RESPONSE_VALUE,
+  AUTH_ID,
+  REQ_ID
+} = require('../lib/protocol')
+
+describe('protocol', function() {
 
   describe('#SERVERDATA_AUTH', function() {
     it('should have a hexadecimal value', function() {
-      expect(protocol.SERVERDATA_AUTH).to.equal(0x03);
-    });
-  });
+      expect(SERVERDATA_AUTH).to.not.be.undefined
+    })
+  })
 
   describe('#SERVERDATA_AUTH_RESPONSE', function() {
     it('should have a hexadecimal value', function() {
-      expect(protocol.SERVERDATA_AUTH_RESPONSE).to.equal(0x02);
-    });
-  });
+      expect(SERVERDATA_AUTH_RESPONSE).to.not.be.undefined
+    })
+  })
 
   describe('#SERVERDATA_EXECCOMMAND', function() {
     it('should have a hexadecimal value', function() {
-      expect(protocol.SERVERDATA_EXECCOMMAND).to.equal(0x02);
-    });
-  });
+      expect(SERVERDATA_EXECCOMMAND).to.not.be.undefined
+    })
+  })
 
   describe('#SERVERDATA_RESPONSE_VALUE', function() {
     it('should have a hexadecimal value', function() {
-      expect(protocol.SERVERDATA_RESPONSE_VALUE).to.equal(0x00);
-    });
-  });
+      expect(SERVERDATA_RESPONSE_VALUE).to.not.be.undefined
+    })
+  })
 
   describe('#AUTH_ID', function() {
     it('should have a hexadecimal value', function() {
-      expect(protocol.AUTH_ID).to.equal(0x123);
-    });
-  });
+      expect(AUTH_ID).to.not.be.undefined
+    })
+  })
 
   describe('#REQ_ID', function() {
     it('should have a hexadecimal value', function() {
-      expect(protocol.REQ_ID).to.equal(0x321);
-    });
-  });
+      expect(REQ_ID).to.not.be.undefined
+    })
+  })
 
-});
+})

@@ -9,60 +9,68 @@
 
 Simple, painless node RCON client for Source servers.
 
-##### Install
+## Install
 
+```bash
+npm install --save simple-rcon
 ```
-npm install simple-rcon
-```
 
-##### Examples
+## Examples
 
-```js
-var Rcon = require('simple-rcon');
+```javascript
+var Rcon = require('simple-rcon')
 var client = new Rcon({
   host: '127.0.0.1',
   port: '27015',
   password: 'rconPassword'
 }).exec('changelevel cp_badlands', function() {
-  client.exec('say \'hey look the map changed!\'');
+  client.exec('say \'hey look the map changed!\'')
 }).exec('status', function(res) {
-  console.log('Server status', res.body);
+  console.log('Server status', res.body)
 }).exec('sm_kick somebody', function() {
-  client.close();
-}).connect();
+  client.close()
+}).connect()
 
 client.on('authenticated', function() {
-  console.log('Authenticated!');
+  console.log('Authenticated!')
 }).on('connected', function() {
-  console.log('Connected!');
+  console.log('Connected!')
 }).on('disconnected', function() {
-  console.log('Disconnected!');
-});
+  console.log('Disconnected!')
+})
 ```
 
-##### API
+## API
 
-* `new Rcon([options])`:
+* Constructor
+  - Accepts one positional argument and returns an instance of `simple-rcon`.
+    Fields | Type | Required | Default Value | Description
+    ------ | ---- | -------- | ------------- | -----------
+    `host` | String | [x] | `'127.0.0.1'` | The remote host address
+    `port` | Number | [x] | `27015` | The remote host dedicated server's port
+    `password` | String | [x] | `null` | The remote host dedicated server's RCON password
+    `timeout` | Number | [ ] | `5000` | The client socket timeout
 
-    - `options.host`: string containing host address (default '127.0.0.1')
-    - `options.port`: int for server port number (default 27015)
-    - `options.password`: string containing rcon password
-    - `options.timeout`: int for socket timeout (default 5000ms)
-* `exec(command, callback)`: Sends rcon commands to server. If exec is called before the `authenticated` event is triggered, the commands will be buffered. Upon authentication, all commands will be executed in order.
+* `exec`
+  - Accepts two positional arguments and sends the command to the remote host dedicated server if authenticated, otherwise buffers the command until authenticated.
+    Argument | Type | Description
+    -------- | ---- | -----------
+    `command` | String | Command to execute on the remote host dedicated server
+    `callback` | Function<String> | Function to invoke with a result received from the remote host dedicated server
 
-  - `command` - String containing remote command
-  - `callback` - Function with signature `function(res) {}`
+* `close`
+  - Accepts no positional arguments and terminates the connection to the remote host dedicated server.
 
-* `close()`: Closes connection
+## Events
 
-##### Events
-
-* `connecting` Client connecting to server.
-* `connected` Client connected to server, although not authenticated.
-* `authenticated` Client authenticated successfully with rcon password.
-* `error` Connection interrupted by an error. Event callback accepts a single `err` argument.
-* `disconnecting` Connecting is about to close.
-* `disconnected` Connection has been closed, interrupted, or dropped.
+Name | Parameters | Description
+---- | ---------- | -----------
+`connecting` | none | Before client begins connecting to server
+`connected` | none | After client has connected to server
+`authenticated` | none | After client has authenticated with server
+`disconnecting` | none | Before client begins disconnecting from server
+`disconnected` | none | After client has disconnected from server
+`error` | 1 (String or Error) | After client connection was interrupted by an error
 
 ##### Contributors
 
@@ -70,8 +78,9 @@ client.on('authenticated', function() {
 * [whitebird](https://github.com/whitebird)
 
 ##### Further Reading
-Read more about the [RCON Protocol](https://developer.valvesoftware.com/wiki/Source_RCON_Protocol)
+
+* Read more about the [RCON Protocol](https://developer.valvesoftware.com/wiki/Source_RCON_Protocol).
 
 ##### License
 
-MIT
+[MIT](/tree/master/LICENSE.md)

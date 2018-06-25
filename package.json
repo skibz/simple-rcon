@@ -9,10 +9,10 @@
     "Ant Cosentino <ant@io.co.za>"
   ],
   "devDependencies": {
-    "chai": "^3.2.0",
-    "coveralls": "^2.11.3",
-    "istanbul": "^0.3.17",
-    "mocha": "^2.2.5"
+    "chai": "^4.1.2",
+    "coveralls": "^3.0.1",
+    "istanbul": "^0.4.5",
+    "mocha": "^5.2.0"
   },
   "scripts": {
     "test": "istanbul test _mocha -- -R spec",

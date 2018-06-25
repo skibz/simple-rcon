@@ -1,1 +1,4 @@
-module.exports = require('./lib/rcon');
+
+'use strict'
+
+module.exports = require('./lib')

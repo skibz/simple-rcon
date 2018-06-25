@@ -1,25 +1,36 @@
-var assert = require("assert")
-  , Packet = require('../lib/packet')
-  , Protocol = require('../lib/protocol');
 
-describe('Packet', function() {
+'use strict'
+
+var {expect} = require('chai')
+var {encode, decode} = require('../lib/packet')
+var {SERVERDATA_AUTH, AUTH_ID} = require('../lib/protocol')
+
+describe('packet', function() {
   describe('#encode()', function() {
     it('should buffer data', function() {
-      var request = Packet.encode(Protocol.SERVERDATA_AUTH, Protocol.AUTH_ID, "rcon_password");
-      assert(request);
-      assert(request instanceof Buffer);
-    });
-  });
+      var request = encode(
+        SERVERDATA_AUTH,
+        AUTH_ID,
+        'rcon_password'
+      )
+      expect(request).to.be.ok
+      expect(request).to.be.instanceof(Buffer)
+    })
+  })
 
   describe('#decode()', function() {
     it('should read packet', function() {
-      var request = Packet.encode(Protocol.SERVERDATA_AUTH, Protocol.AUTH_ID, "rcon_password");
-      var response = Packet.decode(request);
-      assert(response);
-      assert(response.size);
-      assert.equal(response.id, Protocol.AUTH_ID);
-      assert.equal(response.type, Protocol.SERVERDATA_AUTH);
-      assert.equal(response.body, 'rcon_password');
-    });
-  });
-});
+      var request = encode(
+        SERVERDATA_AUTH,
+        AUTH_ID,
+        'rcon_password'
+      )
+      var response = decode(request)
+      expect(response).to.be.ok
+      expect(response.size).to.be.ok
+      expect(response.id).to.equal(AUTH_ID)
+      expect(response.type).to.equal(SERVERDATA_AUTH)
+      expect(response.body).to.equal('rcon_password')
+    })
+  })
+})
