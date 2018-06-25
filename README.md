@@ -44,6 +44,7 @@ client.on('authenticated', function() {
 
 * Constructor
   - Accepts one positional argument and returns an instance of `simple-rcon`.
+
     Fields | Type | Required | Default Value | Description
     ------ | ---- | -------- | ------------- | -----------
     `host` | String | [x] | `'127.0.0.1'` | The remote host address
@@ -53,6 +54,7 @@ client.on('authenticated', function() {
 
 * `exec`
   - Accepts two positional arguments and sends the command to the remote host dedicated server if authenticated, otherwise buffers the command until authenticated.
+
     Argument | Type | Description
     -------- | ---- | -----------
     `command` | String | Command to execute on the remote host dedicated server
