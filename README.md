@@ -42,41 +42,39 @@ client.on('authenticated', function() {
 
 ## API
 
-* Constructor
-  - Accepts one positional argument of type `Object` and returns an instance of `simple-rcon`.
+* Constructor: Accepts one positional argument of type `Object` and returns an instance of `simple-rcon`.
 
-    Fields | Type | Required | Default Value | Description
-    ------ | ---- | -------- | ------------- | -----------
-    `host` | `String` | Yes | `'127.0.0.1'` | The remote host address
-    `port` | `Number` | Yes | `27015` | The remote host dedicated server's port
-    `password` | `String` | Yes | `null` | The remote host dedicated server's RCON password
-    `timeout` | `Number` | No | `5000` | The client socket timeout
+  Fields | Type | Required | Default Value | Description
+  ------ | ---- | -------- | ------------- | -----------
+  `host` | `String` | Yes | `'127.0.0.1'` | The remote host address
+  `port` | `Number` | Yes | `27015` | The remote host dedicated server's port
+  `password` | `String` | Yes | `null` | The remote host dedicated server's RCON password
+  `timeout` | `Number` | No | `5000` | The client socket timeout
+  `execOnAuthenticated` | `Boolean` | No | `true` | Immediately issue any buffered commands once authenticated with the remote host's dedicated server
 
-* `exec`
-  - Accepts two positional arguments and sends the command to the remote host dedicated server if authenticated, otherwise buffers the command until authenticated.
+* `exec`: Accepts two positional arguments and sends the command to the remote host's dedicated server if authenticated, otherwise buffers the command until authenticated.
 
-    Argument | Type | Description
-    -------- | ---- | -----------
-    `command` | `String` | Command to execute on the remote host dedicated server
-    `callback` | `Function<String>` | Function to invoke with a result received from the remote host dedicated server
+  Argument | Type | Description
+  -------- | ---- | -----------
+  `command` | `String` | Command to execute on the remote host's dedicated server
+  `callback` | `Function<String>` | Function to invoke with a result received from the remote host's dedicated server
 
-* `close`
-  - Accepts no positional arguments and terminates the connection to the remote host dedicated server.
+* `close`: Accepts no positional arguments and terminates the connection to the remote host's dedicated server.
 
 ## Events
 
 Name | Parameters | Description
 ---- | ---------- | -----------
-`connecting` | 0 | Before client begins connecting to server
-`connected` | 0 | After client has connected to server
-`authenticated` | 0 | After client has authenticated with server
-`disconnecting` | 0 | Before client begins disconnecting from server
-`disconnected` | 0 | After client has disconnected from server
+`connecting` | 0 | Before client begins connecting to remote host
+`connected` | 0 | After client has connected to remote host
+`authenticated` | 0 | After client has authenticated with remote host's dedicated server
+`disconnecting` | 0 | Before client begins disconnecting from remote host
+`disconnected` | 0 | After client has disconnected from remote host
 `error` | 1 (`Error` or `String`) | After client connection was interrupted by an error
 
 ## Contributors
 
-* [Ant Cosentino (skibz)](https://github.com/skibz)
+* [Ant Cosentino](https://github.com/skibz)
 * [whitebird](https://github.com/whitebird)
 
 ## Further Reading
