@@ -74,15 +74,15 @@ Name | Parameters | Description
 `disconnected` | 0 | After client has disconnected from server
 `error` | 1 (`Error` or `String`) | After client connection was interrupted by an error
 
-##### Contributors
+## Contributors
 
 * [Ant Cosentino (skibz)](https://github.com/skibz)
 * [whitebird](https://github.com/whitebird)
 
-##### Further Reading
+## Further Reading
 
 * Read more about the [RCON Protocol](https://developer.valvesoftware.com/wiki/Source_RCON_Protocol).
 
-##### License
+## License
 
 [MIT](LICENSE.md)
